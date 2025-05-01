@@ -1,0 +1,451 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #fff5f8;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  header {
+    height: 100vh;
+    background: url('your-cover-photo.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4em;
+    margin: 0;
+  }
+  header p {
+    font-size: 1.5em;
+  }
+  section {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .memory {
+    margin-bottom: 60px;
+  }
+  .memory img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .quote {
+    font-style: italic;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 40px 0;
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    background-color: #ffe4ec;
+  }
+  .photo-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  }
+
+  .photo-row img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  object-fit: cover;
+  }
+
+  .photo-row img:nth-child(2) {
+  margin-top: 40px; /* makes second image a bit lower than the first */
+  }
+
+  .secret-note {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .secret-note button {
+    background-color: #ff85a2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .secret-note button:hover {
+    background-color: #ff658a;
+  }
+  
+  .note {
+    margin-top: 10px;
+    padding: 15px;
+    background: #fff0f5;
+    border-radius: 12px;
+    display: inline-block;
+    max-width: 400px;
+    font-style: italic;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* Hides the note by default */
+  .hidden {
+    display: none;
+  }
+
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-container img {
+    width: 300px; /* or adjust as you like */
+    border-radius: 12px;
+  }
+  
+  /* Position the button over the image */
+  .secret-note button {
+    position: absolute;
+    top: 30%;       /* halfway down */
+    left: 0%;      /* a bit to the left */
+    transform: translate(-50%, -50%);
+    
+    background-color: #e7afbc;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 1em;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Hidden note styling */
+  .note {
+    position: absolute;
+    top: 50%;     /* slightly lower than the button */
+    left: 0%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    max-width: 200px;
+    display: none;
+    z-index: 10;
+  }
+  
+  .note.hidden {
+    display: none;
+  }
+  
+  .note.visible {
+    display: block;
+  }
+  
+  .photo-collage {
+    position: relative;
+    height: 400px; /* adjust depending on your image sizes */
+    margin: 50px auto;
+    width: 40%;
+    max-width: 1000px;
+  }
+  
+  .photo {
+    width: 180px; /* set width as needed */
+    position: absolute;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .photo:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Organic placement */
+  .left {
+    top: 10px;
+    left: 4px;
+    z-index: 2;
+    rotate: -3deg;
+  }
+  
+  .middle {
+    top: 190px;
+    left: 60%;
+    z-index: 3;
+    rotate: 1.5deg;
+  }
+  
+  .right {
+    top: 50px;
+    right: 250px;
+    z-index: 1;
+    rotate: 4deg;
+  }
+
+  * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.Container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.MySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.Cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.Prev,
+.Next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.Next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.Prev:Hover,
+.Next:Hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.Numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.Caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.Row:After {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.Column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.Demo {
+  opacity: 0.6;
+}
+
+.Active,
+.Demo:Hover {
+  opacity: 1;
+}
+
+.ROW {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.COLUMN {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.COLUMN IMG {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
