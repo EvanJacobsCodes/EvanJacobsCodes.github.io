@@ -1,9 +1,11 @@
 {
 	"folders": [
 		{
+			"name": "EvanJacobsCodes.github.io",
 			"path": "."
 		},
 		{
+			"name": "photos",
 			"path": "E:/CodingStuff/Anniversary_Gift/Anniversary_Gift-main/photos"
 		}
 	],
